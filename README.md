@@ -6,6 +6,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+## About this project
+
+API REST para tienda online especifica, sirve como base para crear el backend 100% como API para ser consumida con cualquier framework frontend;
 
 ## About Laravel
 
