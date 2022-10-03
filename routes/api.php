@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,10 +28,23 @@ Route::group([
 
 ], function ($router) {
 
-    Route::post('login', 'App\Http\Controllers\AuthController@login');
-    Route::post('logout', 'App\Http\Controllers\AuthController@logout');
-    Route::post('refresh', 'App\Http\Controllers\AuthController@refresh');
-    Route::post('me', 'App\Http\Controllers\AuthController@me');
+    Route::post('login', [AuthController::class,'login']);
+    Route::post('logout', [AuthController::class,'logout']);
+    Route::post('refresh', [AuthController::class,'refresh']);
+    Route::post('me', [AuthController::class,'me']);
 
-    Route::post('register', 'App\Http\Controllers\AuthController@register');
+    Route::post('register', [AuthController::class,'register']);
+});
+
+Route::group([
+
+    'middleware' => 'auth:api',
+    'prefix' => '/v1/admin/'
+
+], function ($router) {
+    //usuarios
+    Route::get('users', [UserController::class,'index']);
+    Route::post('users', [UserController::class,'store']);
+    //validar admin
+    Route::get('userss', [UserController::class,'validarAdmin']);
 });
