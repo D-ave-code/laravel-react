@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RelacionController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -48,3 +49,10 @@ Route::group([
     //validar admin
     Route::get('userss', [UserController::class,'validarAdmin']);
 });
+
+Route::prefix('/v1')->group( function () {
+
+    Route::middleware('auth:api')->get('/productosuser', [RelacionController::class, 'show']);
+
+}
+);
