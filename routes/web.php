@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RelacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return 'welcome';
+})->name('login');
+
+Route::get('/productosuser', [RelacionController::class, 'index']);

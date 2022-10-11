@@ -14,7 +14,7 @@ class RelacionController extends Controller
     public function index()
     {
         $producto = Producto::all();
-        return   $producto[0]->id.'<br>'
+        /* return   $producto[0]->id.'<br>'
                 .$producto[0]->nombre.'<br>'
                 
                 .$producto[0]->descripcion.'<br>'
@@ -23,8 +23,8 @@ class RelacionController extends Controller
                 
                 .$producto[0]->tipoproductos->nombre_tipo.' id producot'.'<br>'
                 .$producto[0]->tipopersonas->nombre.' id persona'.'<br>'
-                .$producto[0]->marcas.' id producto'.'<br>';
-                //return $producto;
+                .$producto[0]->marcas.' id producto'.'<br>'; */
+                return $producto;
     }
 
     public function show(Request $request){

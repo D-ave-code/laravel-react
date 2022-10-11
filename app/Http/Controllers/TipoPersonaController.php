@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use App\Models\TipoPersona;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class TipoPersonaController extends Controller
      */
     public function index()
     {
-        //
+       $productos = Producto::where('id_tipo_personas', 1 )->get();
+       return $productos;
     }
 
     /**
