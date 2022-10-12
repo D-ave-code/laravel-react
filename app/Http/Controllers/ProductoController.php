@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Producto;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -13,8 +14,8 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   
+       //
     }
 
     /**
@@ -44,9 +45,10 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $producto)
+    public function show($id)
     {
-        //
+        $prod = Producto::where('id_tipo_personas', $id)->get();
+        return $prod;
     }
 
     /**

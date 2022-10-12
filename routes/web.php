@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RelacionController;
+use App\Models\Producto;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,4 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/productosuser', [RelacionController::class, 'index']);
+Route::get('/prod/{id}', [ProductoController::class, 'show']);
